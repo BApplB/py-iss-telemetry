@@ -1,4 +1,4 @@
-# py-iss-telemetry
+# pyisstelemetry
 Python library for establishing a telemetry stream with the International Space Station.
 
 This module allows public International Space Station Telemetry 
@@ -11,7 +11,7 @@ Lightstreamer Srl., NASA or any ISS partners.
 Example:
     To create a telemetry stream do
 
-        stream = py_iss_telemetry.TelemetryStream()
+        stream = pyisstelemetry.TelemetryStream()
     
     To get the current telemetry values do
 

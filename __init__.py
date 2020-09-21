@@ -1,4 +1,4 @@
-"""py_iss_telemetry
+"""pyisstelemetry
 
 This module allows public International Space Station Telemetry 
 values to be streamed into a list of dictionaries using Python. 
@@ -10,7 +10,7 @@ Lightstreamer Srl., NASA or any ISS partners.
 Example:
     To create a telemetry stream do
 
-        stream = py_iss_telemetry.TelemetryStream()
+        stream = pyisstelemetry.TelemetryStream()
     
     To get the current telemetry values do
 
