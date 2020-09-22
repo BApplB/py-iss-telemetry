@@ -8,7 +8,18 @@ A websocket is established with NASA's ISSLIVE Lightstreamer server.
 DISCLAIMER: The creator of this module is in no way affiliated with
 Lightstreamer Srl., NASA or any ISS partners.
 
+## Installation
+
+To install, simply run:
+	pip install py-iss-telemetry
+
+	
+## Usage
+
 Example:
+
+    import pyisstelemetry
+
     To create a telemetry stream do
 
         stream = pyisstelemetry.TelemetryStream()

@@ -46,6 +46,9 @@ __status__ = "Stable"
 
 
 from . import lightstreamer as ls
+import pkg_resources
+
+TM_FILE = pkg_resources.resource_filename('pyisstelemetry', 'tm.list')
 
 class TelemetryStream():
     """
@@ -62,7 +65,7 @@ class TelemetryStream():
         self.subscribe()
 
     def read_tm_list(self):
-        with open('tm.list') as f:
+        with open(TM_FILE) as f:
             lines = [line.rstrip() for line in f]
         return lines
 
