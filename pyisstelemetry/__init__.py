@@ -46,7 +46,7 @@ __status__ = "Stable"
 
 
 from . import lightstreamer as ls
-from . import modules_dict
+from . import module_dictionary
 import pkg_resources
 
 TM_FILE = pkg_resources.resource_filename('pyisstelemetry', 'tm.list')
@@ -73,6 +73,7 @@ class TelemetryStream():
     def get_tm(self):
         """Returns a list of ISS telemetry."""
         return self.telemetry_history
+    
     def connect_via_lightstream(self):
         """Creates a connection to ISSLIVE via lighstream."""
         print("Starting connection")
