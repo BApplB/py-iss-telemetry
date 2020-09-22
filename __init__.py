@@ -1,4 +1,4 @@
-"""pyisstelemetry
+"""py-iss-telemetry
 
 This module allows public International Space Station Telemetry 
 values to be streamed into a list of dictionaries using Python. 
