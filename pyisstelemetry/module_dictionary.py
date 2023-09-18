@@ -1362,6 +1362,18 @@ MODULES_DICT = [
         "subsystem": "SPARTAN"
     },
     {
+        "name": "TIME_000001",
+        "telemetry_name": "GMT",
+        "telemetry_info": "Greenwich Mean Time (GMT)",
+        "subsystem": "N/A"
+    },
+    {
+        "name": "TIME_000002",
+        "telemetry_name": "YEAR",
+        "telemetry_info": "Year",
+        "subsystem": "N/A"
+    },
+    {
         "name": "USLAB000001",
         "telemetry_name": "CMG 1 STATUS",
         "telemetry_info": "Control Moment Gyroscope (CMG)-1 On-Line",
@@ -1861,8 +1873,14 @@ MODULES_DICT = [
     },
     {
         "name": "USLAB000084",
-        "telemetry_name": "ISS TIME",
+        "telemetry_name": "ISS TIME COURSE",
         "telemetry_info": "ISS Command and Control Multiplexer/Demultiplexer Onboard Time (course)",
+        "subsystem": "ODIN"
+    },
+    {
+        "name": "USLAB000085",
+        "telemetry_name": "ISS TIME FINE",
+        "telemetry_info": "ISS Command and Control Multiplexer/Demultiplexer Onboard Time (fine)",
         "subsystem": "ODIN"
     },
     {
@@ -1966,6 +1984,30 @@ MODULES_DICT = [
         "telemetry_name": "SV TIME TAG",
         "telemetry_info": "State vector time tag",
         "subsystem": "TOPO"
+    },
+    {
+        "name": "USLAB000ALT",
+        "telemetry_name": "ATT STATE VECTORS",
+        "telemetry_info": "ISS Altitude from State Vectors",
+        "subsystem": "TOPO"
+    },
+    {
+        "name": "USLAB000PIT",
+        "telemetry_name": "US ATT PITCH",
+        "telemetry_info": "US Attitude Pitch",
+        "subsystem": "ADCO"
+    },
+    {
+        "name": "USLAB000ROL",
+        "telemetry_name": "US ATT ROLL",
+        "telemetry_info": "US Attitude Roll",
+        "subsystem": "ADCO"
+    },
+    {
+        "name": "USLAB000YAW",
+        "telemetry_name": "US ATT YAW",
+        "telemetry_info": "US Attitude Yaw",
+        "subsystem": "ADCO"
     },
     {
         "name": "Z1000001",
