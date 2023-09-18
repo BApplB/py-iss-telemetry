@@ -14,7 +14,6 @@ setuptools.setup(
     url="https://github.com/BApplB/py-iss-telemetry",
     packages=setuptools.find_packages(),
 	include_package_data=True,
-	package_data={"": ["*.list"]},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",

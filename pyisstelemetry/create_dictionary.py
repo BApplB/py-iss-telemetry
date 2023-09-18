@@ -1,26 +1,44 @@
+import requests
+from bs4 import BeautifulSoup
+import json
 import module_dictionary
 
-tmlistfile = open('tm.list', 'r')
-dict_file = open('mdictionary.py', 'w')
-dict_list = module_dictionary.modules_dicts
+DICT_SOURCE = "https://raw.githubusercontent.com/ISS-Mimic/Mimic/main/docs/dashboard.html"
+dict_file = open('module_dictionary.py', 'w')
+dict_list = module_dictionary.MODULES_DICT
 
-for line in tmlistfile:
-    line = line.replace('\n','')
+response = requests.get(DICT_SOURCE)
 
-    new_dict = {
-            'OPCODE': line,
-            'NAME': 'null',             # could ask for user input here for each one ?? 
-            'DESCRIPTION': 'null',      # ^
-            'SUBSYSTEM': 'null',        # ^
-            'VALUE': 'null'             # ^
-        }
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    table = soup.find('table')
 
-    if new_dict not in dict_list:
-        # name = input('What is the name for {0}'.format(line))
-        dict_list.append(new_dict)
+    if table:
+        result = []
+
+        title_divs = table.find_all('div', attrs={'title': True})
+        
+        for title_div in title_divs:
+            info = title_div['title']
+            subsystem = title_div['class'][0]
+            desc = title_div.find_next('div', class_='desc').text
+            val_id = title_div.find_next('div', class_='val')['id']
+
+            entry = {
+                "name": val_id,
+                "telemetry_name": desc,
+                "telemetry_info": info,
+                "subsystem": subsystem,
+            }
+
+            result.append(entry)
+
+        json_result = json.dumps(result, indent=4)
+
+        dict_file.write('MODULES_DICT = ')
+        dict_file.write(json_result)
     else:
-        # Exists, so just pass.
-        pass
-
-dict_file.write('modules_dicts = ')
-dict_file.write(''.join(str(dict_list)))
+        print("No table found in the HTML.")
+else:
+    print(f"Failed to fetch the HTML content. Status code: {response.status_code}")

@@ -47,9 +47,7 @@ __status__ = "Stable"
 
 from . import lightstreamer as ls
 from . import module_dictionary
-import pkg_resources
 
-TM_FILE = pkg_resources.resource_filename('pyisstelemetry', 'tm.list')
 
 class TelemetryStream():
     """
@@ -61,14 +59,13 @@ class TelemetryStream():
         if opcodes != None:
             self.opcodes = opcodes
         else:
-            self.opcodes = self.read_tm_list()
+            self.opcodes = self.read_modules_dicts()
         self.connect_via_lightstream()
         self.subscribe()
 
-    def read_tm_list(self):
-        with open(TM_FILE) as f:
-            lines = [line.rstrip() for line in f]
-        return lines
+    def read_modules_dicts(self):
+        opcodes_list = [module["name"] for module in module_dictionary.MODULES_DICT]
+        return opcodes_list
 
     def get_tm(self):
         """Returns a list of ISS telemetry."""
@@ -100,13 +97,24 @@ class TelemetryStream():
         z.update(y)
         return z
 
-    def on_item_update(self,item_update):
+    def on_item_update(self, item_update):
         """Subscription listener"""
-        item_metadata = {
-            'name':item_update['name'],
-            'pos':item_update['pos'],
+        item = {
+            'name': item_update['name'],
+            'pos': item_update['pos'],
         }
-        entry = self._merge_two_dicts(item_metadata,item_update['values'])
+        
+        matching_metadata = next((metadata for metadata in module_dictionary.MODULES_DICT if metadata["name"] == item_update['name']), None)
+
+        if matching_metadata:
+            item_metadata = self._merge_two_dicts(item, matching_metadata)
+        else:
+            # If no matching metadata, create a new metadata with keys set to None
+            default_metadata = {key: None for key in module_dictionary.MODULES_DICT[0].keys()}
+            item_metadata = self._merge_two_dicts(item, default_metadata)
+
+        entry = self._merge_two_dicts(item_metadata, item_update['values'])
+        
         self.telemetry_history.append(entry)
 
     
