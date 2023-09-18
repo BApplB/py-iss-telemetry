@@ -1987,7 +1987,7 @@ MODULES_DICT = [
     },
     {
         "name": "USLAB000ALT",
-        "telemetry_name": "ATT STATE VECTORS",
+        "telemetry_name": "ALT STATE VECTORS",
         "telemetry_info": "ISS Altitude from State Vectors",
         "subsystem": "TOPO"
     },
