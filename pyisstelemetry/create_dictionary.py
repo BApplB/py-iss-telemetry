@@ -34,7 +34,9 @@ if response.status_code == 200:
 
             result.append(entry)
 
-        json_result = json.dumps(result, indent=4)
+        sorted_result = sorted(result, key=lambda x: x["name"])
+
+        json_result = json.dumps(sorted_result, indent=4)
 
         dict_file.write('MODULES_DICT = ')
         dict_file.write(json_result)

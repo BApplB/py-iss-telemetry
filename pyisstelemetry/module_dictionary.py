@@ -348,6 +348,294 @@ MODULES_DICT = [
         "subsystem": "CDH"
     },
     {
+        "name": "CSAMBA00003-1",
+        "telemetry_name": "MBS POA STP CND",
+        "telemetry_info": "POA Stop Condition",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBA00003-2",
+        "telemetry_name": "MBS POA LEE SPD",
+        "telemetry_info": "POA LEE Speed",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBA00003-3",
+        "telemetry_name": "MBS POA HOT",
+        "telemetry_info": "POA Hot",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBA00003-4",
+        "telemetry_name": "SSRMS LEE STP",
+        "telemetry_info": "SSRMS LEE Stop Condition",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBA00003-5",
+        "telemetry_name": "SSRMS LEE SPD",
+        "telemetry_info": "POA LEE Speed",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBA00003-6",
+        "telemetry_name": "SSRMS LEE HOT",
+        "telemetry_info": "POA Hot",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBA00004",
+        "telemetry_name": "POA PL STATUS",
+        "telemetry_info": "MSS OCS Payload Status MBS POA",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBS00001-1",
+        "telemetry_name": "MBS OPER BASE",
+        "telemetry_info": "MBS Operating Base",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBS00001-2",
+        "telemetry_name": "MBS BASE LOC",
+        "telemetry_info": "MBS Base Location",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMBS00002",
+        "telemetry_name": "MCAS PL STATUS",
+        "telemetry_info": "MSS OCS Payload Status MBS MCAS",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMT000001",
+        "telemetry_name": "MT POS",
+        "telemetry_info": "MSS MT Position Float",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSAMT000002",
+        "telemetry_name": "MT WORKSITE",
+        "telemetry_info": "MSS MT Utility Port ID (which Worksite MT is connected to, WS1 though WS8)",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0001-1",
+        "telemetry_name": "SPDM BASE",
+        "telemetry_info": "SPDM Operating Base",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0002",
+        "telemetry_name": "SPDM BASE LOC",
+        "telemetry_info": "MSS OCS Base Location SPDM",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0003",
+        "telemetry_name": "SPDM 1 SR POS",
+        "telemetry_info": "MSS OCS SPDM 1 SR Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0004",
+        "telemetry_name": "SPDM 1 SY POS",
+        "telemetry_info": "MSS OCS SPDM 1 SY Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0005",
+        "telemetry_name": "SPDM 1 SP POS",
+        "telemetry_info": "MSS OCS SPDM 1 SP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0006",
+        "telemetry_name": "SPDM 1 EP POS",
+        "telemetry_info": "MSS OCS SPDM 1 EP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0007",
+        "telemetry_name": "SPDM 1 WP POS",
+        "telemetry_info": "MSS OCS SPDM 1 WP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0008",
+        "telemetry_name": "SPDM 1 WY POS",
+        "telemetry_info": "MSS OCS SPDM 1 WY Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0009",
+        "telemetry_name": "SPDM 1 WR POS",
+        "telemetry_info": "MSS OCS SPDM 1 WR Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0010",
+        "telemetry_name": "SPDM 1 OTCM STAT",
+        "telemetry_info": "MSS Payload Status OCS SPDM Arm 1 OTCM",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0011",
+        "telemetry_name": "SPDM 2 SR POS",
+        "telemetry_info": "MSS OCS SPDM 2 SR Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0012",
+        "telemetry_name": "SPDM 2 SY POS",
+        "telemetry_info": "MSS OCS SPDM 2 SY Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0013",
+        "telemetry_name": "SPDM 2 SP POS",
+        "telemetry_info": "MSS OCS SPDM 2 SP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0014",
+        "telemetry_name": "SPDM 2 EP POS",
+        "telemetry_info": "MSS OCS SPDM 2 EP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0015",
+        "telemetry_name": "SPDM 2 WP POS",
+        "telemetry_info": "MSS OCS SPDM 2 WP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0016",
+        "telemetry_name": "SPDM 2 WY POS",
+        "telemetry_info": "MSS OCS SPDM 2 WY Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0017",
+        "telemetry_name": "SPDM 2 WR POS",
+        "telemetry_info": "MSS OCS SPDM 2 WR Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0018-1",
+        "telemetry_name": "SPDM 1 HOT",
+        "telemetry_info": "MSS SPDM Arm 1 Hot",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0018-2",
+        "telemetry_name": "SPDM 2 HOT",
+        "telemetry_info": "MSS SPDM Arm 2 Hot",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0019",
+        "telemetry_name": "SPDM 2 OTCM STAT",
+        "telemetry_info": "MSS Payload Status OCS SPDM Arm 2 OTCM",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0020",
+        "telemetry_name": "SPDM BR POS",
+        "telemetry_info": "MSS OCS SPDM Body Roll Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0021-1",
+        "telemetry_name": "SPDM LEE STP CND",
+        "telemetry_info": "SPDM Lee Stop Condition",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0021-2",
+        "telemetry_name": "SPDM LEE RUN SPD",
+        "telemetry_info": "SPDM Lee Run Speed",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0021-3",
+        "telemetry_name": "SPDM LEE HOT",
+        "telemetry_info": "SPDM Lee Hot",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASPDM0022",
+        "telemetry_name": "SPDM BODY PL STAT",
+        "telemetry_info": "MSS Payload Status OCS SPDM Body",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS001-1",
+        "telemetry_name": "SACS BASE",
+        "telemetry_info": "MSS EDCD SACS Operating Base",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS002",
+        "telemetry_name": "SSRMS BASE LOC",
+        "telemetry_info": "MSS EDCD SSRMS Base Location",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS003",
+        "telemetry_name": "SSRMS OPER BASE",
+        "telemetry_info": "MSS EDCD SSRMS Operating Base (Which LEE is Base)",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS004",
+        "telemetry_name": "SSRMS SR POS",
+        "telemetry_info": "SSRMS SR Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS005",
+        "telemetry_name": "SSRMS SY POS",
+        "telemetry_info": "SSRMS SY Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS006",
+        "telemetry_name": "SSRMS SP POS",
+        "telemetry_info": "SSRMS SP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS007",
+        "telemetry_name": "SSRMS EP POS",
+        "telemetry_info": "SSRMS EP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS008",
+        "telemetry_name": "SSRMS WP POS",
+        "telemetry_info": "SSRMS WP Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS009",
+        "telemetry_name": "SSRMS WY POS",
+        "telemetry_info": "SSRMS WY Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS010",
+        "telemetry_name": "SSRMS WR POS",
+        "telemetry_info": "SSRMS WR Measured Joint Position",
+        "subsystem": "CSA"
+    },
+    {
+        "name": "CSASSRMS011",
+        "telemetry_name": "SSRMS TIP LEE STAT",
+        "telemetry_info": "MSS OCS Payload Status SSRMS Tip LEE",
+        "subsystem": "CSA"
+    },
+    {
         "name": "NODE1000001",
         "telemetry_name": "N1 MDM 1 STATUS",
         "telemetry_info": "Node 1 Multiplexer/Demultiplexer (MDM) 1 on-off status",
@@ -1768,293 +2056,5 @@ MODULES_DICT = [
         "telemetry_name": "SGANT XEL",
         "telemetry_info": "Ku-Band SGANT Cross-Elevation Position",
         "subsystem": "CATO"
-    },
-    {
-        "name": "CSAMT000001",
-        "telemetry_name": "MT POS",
-        "telemetry_info": "MSS MT Position Float",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMT000002",
-        "telemetry_name": "MT WORKSITE",
-        "telemetry_info": "MSS MT Utility Port ID (which Worksite MT is connected to, WS1 though WS8)",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS001-1",
-        "telemetry_name": "SACS BASE",
-        "telemetry_info": "MSS EDCD SACS Operating Base",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS002",
-        "telemetry_name": "SSRMS BASE LOC",
-        "telemetry_info": "MSS EDCD SSRMS Base Location",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS003",
-        "telemetry_name": "SSRMS OPER BASE",
-        "telemetry_info": "MSS EDCD SSRMS Operating Base (Which LEE is Base)",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS004",
-        "telemetry_name": "SSRMS SR POS",
-        "telemetry_info": "SSRMS SR Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS005",
-        "telemetry_name": "SSRMS SY POS",
-        "telemetry_info": "SSRMS SY Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS006",
-        "telemetry_name": "SSRMS SP POS",
-        "telemetry_info": "SSRMS SP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS007",
-        "telemetry_name": "SSRMS EP POS",
-        "telemetry_info": "SSRMS EP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS008",
-        "telemetry_name": "SSRMS WP POS",
-        "telemetry_info": "SSRMS WP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS009",
-        "telemetry_name": "SSRMS WY POS",
-        "telemetry_info": "SSRMS WY Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS010",
-        "telemetry_name": "SSRMS WR POS",
-        "telemetry_info": "SSRMS WR Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASSRMS011",
-        "telemetry_name": "SSRMS TIP LEE STAT",
-        "telemetry_info": "MSS OCS Payload Status SSRMS Tip LEE",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0001-1",
-        "telemetry_name": "SPDM BASE",
-        "telemetry_info": "SPDM Operating Base",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0002",
-        "telemetry_name": "SPDM BASE LOC",
-        "telemetry_info": "MSS OCS Base Location SPDM",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0003",
-        "telemetry_name": "SPDM 1 SR POS",
-        "telemetry_info": "MSS OCS SPDM 1 SR Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0004",
-        "telemetry_name": "SPDM 1 SY POS",
-        "telemetry_info": "MSS OCS SPDM 1 SY Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0005",
-        "telemetry_name": "SPDM 1 SP POS",
-        "telemetry_info": "MSS OCS SPDM 1 SP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0006",
-        "telemetry_name": "SPDM 1 EP POS",
-        "telemetry_info": "MSS OCS SPDM 1 EP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0007",
-        "telemetry_name": "SPDM 1 WP POS",
-        "telemetry_info": "MSS OCS SPDM 1 WP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0008",
-        "telemetry_name": "SPDM 1 WY POS",
-        "telemetry_info": "MSS OCS SPDM 1 WY Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0009",
-        "telemetry_name": "SPDM 1 WR POS",
-        "telemetry_info": "MSS OCS SPDM 1 WR Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0010",
-        "telemetry_name": "SPDM 1 OTCM STAT",
-        "telemetry_info": "MSS Payload Status OCS SPDM Arm 1 OTCM",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0011",
-        "telemetry_name": "SPDM 2 SR POS",
-        "telemetry_info": "MSS OCS SPDM 2 SR Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0012",
-        "telemetry_name": "SPDM 2 SY POS",
-        "telemetry_info": "MSS OCS SPDM 2 SY Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0013",
-        "telemetry_name": "SPDM 2 SP POS",
-        "telemetry_info": "MSS OCS SPDM 2 SP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0014",
-        "telemetry_name": "SPDM 2 EP POS",
-        "telemetry_info": "MSS OCS SPDM 2 EP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0015",
-        "telemetry_name": "SPDM 2 WP POS",
-        "telemetry_info": "MSS OCS SPDM 2 WP Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0016",
-        "telemetry_name": "SPDM 2 WY POS",
-        "telemetry_info": "MSS OCS SPDM 2 WY Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0017",
-        "telemetry_name": "SPDM 2 WR POS",
-        "telemetry_info": "MSS OCS SPDM 2 WR Measured Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0018-1",
-        "telemetry_name": "SPDM 1 HOT",
-        "telemetry_info": "MSS SPDM Arm 1 Hot",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0018-2",
-        "telemetry_name": "SPDM 2 HOT",
-        "telemetry_info": "MSS SPDM Arm 2 Hot",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0019",
-        "telemetry_name": "SPDM 2 OTCM STAT",
-        "telemetry_info": "MSS Payload Status OCS SPDM Arm 2 OTCM",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0020",
-        "telemetry_name": "SPDM BR POS",
-        "telemetry_info": "MSS OCS SPDM Body Roll Joint Position",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0021-1",
-        "telemetry_name": "SPDM LEE STP CND",
-        "telemetry_info": "SPDM Lee Stop Condition",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0021-2",
-        "telemetry_name": "SPDM LEE RUN SPD",
-        "telemetry_info": "SPDM Lee Run Speed",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0021-3",
-        "telemetry_name": "SPDM LEE HOT",
-        "telemetry_info": "SPDM Lee Hot",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSASPDM0022",
-        "telemetry_name": "SPDM BODY PL STAT",
-        "telemetry_info": "MSS Payload Status OCS SPDM Body",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBS00001-1",
-        "telemetry_name": "MBS OPER BASE",
-        "telemetry_info": "MBS Operating Base",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBS00001-2",
-        "telemetry_name": "MBS BASE LOC",
-        "telemetry_info": "MBS Base Location",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBS00002",
-        "telemetry_name": "MCAS PL STATUS",
-        "telemetry_info": "MSS OCS Payload Status MBS MCAS",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00003-1",
-        "telemetry_name": "MBS POA STP CND",
-        "telemetry_info": "POA Stop Condition",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00003-2",
-        "telemetry_name": "MBS POA LEE SPD",
-        "telemetry_info": "POA LEE Speed",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00003-3",
-        "telemetry_name": "MBS POA HOT",
-        "telemetry_info": "POA Hot",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00003-4",
-        "telemetry_name": "SSRMS LEE STP",
-        "telemetry_info": "SSRMS LEE Stop Condition",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00003-5",
-        "telemetry_name": "SSRMS LEE SPD",
-        "telemetry_info": "POA LEE Speed",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00003-6",
-        "telemetry_name": "SSRMS LEE HOT",
-        "telemetry_info": "POA Hot",
-        "subsystem": "CSA"
-    },
-    {
-        "name": "CSAMBA00004",
-        "telemetry_name": "POA PL STATUS",
-        "telemetry_info": "MSS OCS Payload Status MBS POA",
-        "subsystem": "CSA"
     }
 ]
