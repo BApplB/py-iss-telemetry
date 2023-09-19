@@ -45,6 +45,7 @@ __status__ = "Stable"
 #   limitations under the License.
 
 import math
+import copy
 from . import lightstreamer as ls
 from . import module_dictionary
 
@@ -55,7 +56,9 @@ class TelemetryStream():
     Station.
     """
     def __init__(self, opcodes=None):
+        self.telemetry_lock = False
         self.telemetry_history = []
+        self.telemetry_cache = []
         self.QTRN = {
           "0": None,
           "1": None,
@@ -76,6 +79,18 @@ class TelemetryStream():
     def get_tm(self):
         """Returns a list of ISS telemetry."""
         return self.telemetry_history
+
+    def reset_tm(self):
+        self.telemetry_lock = True
+        self.telemetry_history = []
+        self.telemetry_lock = False
+
+    def dump_tm(self):
+        self.telemetry_lock = True
+        dumped_data = self.telemetry_history.copy()
+        self.telemetry_history = []
+        self.telemetry_lock = False
+        return dumped_data
 
     def connect_via_lightstream(self):
         """Creates a connection to ISSLIVE via lighstream."""
@@ -221,7 +236,13 @@ class TelemetryStream():
 
     def add_telemetry_history(self, metadata, update):
         entry = self._merge_two_dicts(metadata, update)
-        self.telemetry_history.append(entry)
+        if self.telemetry_lock:
+            self.telemetry_cache.append(entry)
+        else:
+            if self.telemetry_cache:
+                self.telemetry_history = copy.deepcopy(self.telemetry_cache)
+                self.telemetry_cache = []
+            self.telemetry_history.append(entry)
 
     def addlistener(self,subscription):
         """Adds a listener to the lightstream."""
