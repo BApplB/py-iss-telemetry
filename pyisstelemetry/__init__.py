@@ -46,9 +46,14 @@ __status__ = "Stable"
 
 import math
 import copy
+import json
+import os.path
 from . import lightstreamer as ls
-from . import module_dictionary
 
+MODULES_DICT_PATH = os.path.join(os.path.dirname(__file__), 'module_dictionary.json')
+
+with open(MODULES_DICT_PATH, "r") as modules_dict:
+    MODULES_DICT = json.load(modules_dict)
 
 class TelemetryStream():
     """
@@ -73,7 +78,7 @@ class TelemetryStream():
         self.subscribe()
 
     def read_modules_dicts(self):
-        opcodes_list = [module["name"] for module in module_dictionary.MODULES_DICT]
+        opcodes_list = [module["Public_PUI"] for module in MODULES_DICT]
         return opcodes_list
 
     def get_tm(self):
@@ -109,7 +114,8 @@ class TelemetryStream():
         return ls.Subscription(
         mode="MERGE",
         items=self.opcodes,
-        fields=["Value","TimeStamp","Status","Symbol"])
+        fields=["TimeStamp", "Value", "Status.Class", "Status.Indicator", "Status.Color", "CalibratedData"])
+        #fields=["Value","TimeStamp","Status","Symbol"])
 
     @staticmethod
     def calculate_attitude(Q0, Q1, Q2, Q3):    
@@ -144,7 +150,7 @@ class TelemetryStream():
         roll = roll * 180 / math.pi
 
         return yaw, pitch, roll
-    
+
     @staticmethod
     def _merge_two_dicts(x, y):
         z = x.copy()
@@ -156,79 +162,50 @@ class TelemetryStream():
         item = {
             'name': item_update['name'],
             'pos': item_update['pos'],
+            'values': item_update['values']
         }
-    
-        if item_update['name'] == 'USLAB000018':
-            self.QTRN['0'] = float(item_update['values']['Value'])
-        elif item_update['name'] == 'USLAB000019':
-            self.QTRN['1'] = float(item_update['values']['Value'])
-        elif item_update['name'] == 'USLAB000020':
-            self.QTRN['2'] = float(item_update['values']['Value'])
-        elif item_update['name'] == 'USLAB000021':
-            self.QTRN['3'] = float(item_update['values']['Value'])
-    
-        matching_metadata = next((metadata for metadata in module_dictionary.MODULES_DICT if metadata["name"] == item_update['name']), None)
+
+        if item['name'] == 'USLAB000018':
+            self.QTRN['0'] = float(item['values']['Value'])
+        elif item['name'] == 'USLAB000019':
+            self.QTRN['1'] = float(item['values']['Value'])
+        elif item['name'] == 'USLAB000020':
+            self.QTRN['2'] = float(item['values']['Value'])
+        elif item['name'] == 'USLAB000021':
+            self.QTRN['3'] = float(item['values']['Value'])
+
+        matching_metadata = next((metadata for metadata in MODULES_DICT if metadata["Public_PUI"] == item['name']), None)
     
         if matching_metadata:
             item_metadata = self._merge_two_dicts(item, matching_metadata)
         else:
             # If no matching metadata, create a new metadata with keys set to None
-            default_metadata = {key: None for key in module_dictionary.MODULES_DICT[0].keys()}
+            default_metadata = {key: None for key in MODULES_DICT[0].keys()}
             item_metadata = self._merge_two_dicts(item, default_metadata)
-    
-        # Merge the 'values' directly into 'item_metadata'
-        item_metadata = self._merge_two_dicts(item_metadata, item_update['values'])
-    
-        self.add_telemetry_history(item_metadata, item_metadata)  # Use item_metadata twice for the update
-    
+
+        self.add_telemetry_history(item_metadata, item['values'])
+
         # Calculate yaw, pitch, and roll values if all quaternion values are present
         if all(q is not None for q in self.QTRN.values()):
             Q0, Q1, Q2, Q3 = self.QTRN['0'], self.QTRN['1'], self.QTRN['2'], self.QTRN['3']
-    
+
             yaw_value, pitch_value, roll_value = self.calculate_attitude(Q0, Q1, Q2, Q3)
-    
+
+            ypr_values = {
+                'USLAB000YAW': yaw_value,
+                'USLAB000PIT': pitch_value,
+                'USLAB000ROL': roll_value,
+            }
+
             # Generate item updates for yaw, pitch, and roll
-            if yaw_value is not None:
-                yaw_update = {
-                    'name': 'USLAB000YAW',
-                    'Value': yaw_value,
-                    'TimeStamp': item_update['values'].get('TimeStamp', None),
-                    'Status': item_update['values'].get('Status', None),
-                    'Symbol': item_update['values'].get('Symbol', None)
-                }
-                # Use _merge_two_dicts to update 'Value' while keeping other values
-                item_update['values'] = self._merge_two_dicts(item_update['values'], yaw_update)
-                matching_metadata = next((metadata for metadata in module_dictionary.MODULES_DICT if metadata["name"] == yaw_update['name']), None)
-                item_metadata = self._merge_two_dicts(item, matching_metadata)
-                self.add_telemetry_history(item_metadata, item_update['values'])
-    
-            if pitch_value is not None:
-                pitch_update = {
-                    'name': 'USLAB000PIT',
-                    'Value': pitch_value,
-                    'TimeStamp': item_update['values'].get('TimeStamp', None),
-                    'Status': item_update['values'].get('Status', None),
-                    'Symbol': item_update['values'].get('Symbol', None)
-                }
-                # Use _merge_two_dicts to update 'Value' while keeping other values
-                item_update['values'] = self._merge_two_dicts(item_update['values'], pitch_update)
-                matching_metadata = next((metadata for metadata in module_dictionary.MODULES_DICT if metadata["name"] == pitch_update['name']), None)
-                item_metadata = self._merge_two_dicts(item, matching_metadata)
-                self.add_telemetry_history(item_metadata, item_update['values'])
-    
-            if roll_value is not None:
-                roll_update = {
-                    'name': 'USLAB000ROL',
-                    'Value': roll_value,
-                    'TimeStamp': item_update['values'].get('TimeStamp', None),
-                    'Status': item_update['values'].get('Status', None),
-                    'Symbol': item_update['values'].get('Symbol', None)
-                }
-                # Use _merge_two_dicts to update 'Value' while keeping other values
-                item_update['values'] = self._merge_two_dicts(item_update['values'], roll_update)
-                matching_metadata = next((metadata for metadata in module_dictionary.MODULES_DICT if metadata["name"] == roll_update['name']), None)
-                item_metadata = self._merge_two_dicts(item, matching_metadata)
-                self.add_telemetry_history(item_metadata, item_update['values'])
+            # Use _merge_two_dicts to update 'Value' while keeping other values
+            for item_name, new_value in ypr_values.items():
+                if new_value is not None:
+                    item['name'] = item_name
+                    item['values']['Value'] = new_value
+                    matching_metadata = next((metadata for metadata in MODULES_DICT if metadata["Public_PUI"] == item['name']), None)
+                    item_metadata = self._merge_two_dicts(item, matching_metadata)
+                    self.add_telemetry_history(item_metadata, item['values'])
     
             # Reset quaternion values
             for key in self.QTRN:
@@ -248,13 +225,13 @@ class TelemetryStream():
         """Adds a listener to the lightstream."""
         subscription.addlistener(self.on_item_update)
         print("Listening to ISS Telemetry...")
-    
+
     def subscribe(self):
         """Abstracted subscribe function."""
         self.subscription=self.make_lightstream_subscription()
         self.addlistener(self.subscription)
         self.subkey=self.lightstreamer_client.subscribe(self.subscription)
-    
+
     def unsubscribe(self):
         """Unsubscribe from lightstream."""
         self.lightstreamer_client.unsubscribe(self.sub_key)
