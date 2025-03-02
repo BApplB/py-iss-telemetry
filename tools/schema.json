@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "Discipline": {
+        "type": "string"
+      },
+      "PUI": {
+        "type": "string"
+      },
+      "Public_PUI": {
+        "type": "string"
+      },
+      "Description": {
+        "type": "string"
+      },
+      "OPS_NOM": {
+        "type": "string"
+      },
+      "ENG_NOM": {
+        "type": "string"
+      },
+      "UNITS": {
+        "type": "string"
+      },
+      "ENUM": {
+        "type": ["string", "null"]
+      },
+      "Format_Spec": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "Discipline",
+      "PUI",
+      "Public_PUI",
+      "Description",
+      "OPS_NOM",
+      "ENG_NOM",
+      "UNITS",
+      "Format_Spec"
+    ]
+  }
+}
